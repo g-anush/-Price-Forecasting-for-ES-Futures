@@ -1,0 +1,58 @@
+{
+    "models_dir": "models",
+    "data_dir": "data",
+    "buffer_size": 200,
+    "signal_threshold": 0.0001,
+    "min_signal_interval_minutes": 15,
+    "position_size": 1,
+    "max_position": 3,
+    "stop_loss_pct": 0.002,
+    "take_profit_pct": 0.003,
+    "scale_by_confidence": true,
+    "trading_hours": {
+        "start": "09:30",
+        "end": "16:00"
+    },
+    "feature_engineering": {
+        "lookback_periods": [5, 10, 20, 50],
+        "volume_periods": [5, 10],
+        "rsi_period": 14,
+        "macd_params": {
+            "fast": 12,
+            "slow": 26,
+            "signal": 9
+        }
+    },
+    "models_to_use": [
+        "ensemble",
+        "XGBoost",
+        "LSTM",
+        "GRU",
+        "RandomForest",
+        "GradientBoosting"
+    ],
+    "model_weights": {
+        "ensemble": 0.25,
+        "XGBoost": 0.15,
+        "LSTM": 0.20,
+        "GRU": 0.20,
+        "RandomForest": 0.10,
+        "GradientBoosting": 0.10
+    },
+    "risk_management": {
+        "max_daily_loss_pct": 2.0,
+        "max_daily_trades": 10,
+        "min_risk_reward_ratio": 1.5,
+        "volatility_adjustment": true
+    },
+    "logging": {
+        "level": "INFO",
+        "file": "trading_system.log",
+        "console": true
+    },
+    "backtesting": {
+        "initial_capital": 100000,
+        "commission_per_contract": 2.50,
+        "slippage_ticks": 1
+    }
+}
